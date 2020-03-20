@@ -10,17 +10,17 @@ script:
   - docker run espenove/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t espenove/multi-client ./client
-  - docker build -t espenove/multi-nginx ./nginx
-  - docker build -t espenove/multi-server ./server
-  - docker build -t espenove/multi-worker ./worker
+  - docker build -t espenov/multi-client ./client
+  - docker build -t espenov/multi-nginx ./nginx
+  - docker build -t espenov/multi-server ./server
+  - docker build -t espenov/multi-worker ./worker
   # docker login
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # push to docker hub
-  - docker push espenove/multi-client
-  - docker push espenove/multi-nginx
-  - docker push espenove/multi-server
-  - docker push espenove/multi-worker
+  - docker push espenov/multi-client
+  - docker push espenov/multi-nginx
+  - docker push espenov/multi-server
+  - docker push espenov/multi-worker
   
 
 
